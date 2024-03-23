@@ -3,13 +3,16 @@ use std::fs::File;
 use std::io::Read;
 
 fn main() {
-    let file_path = match env::args().next() {
+    let args: Vec<String> = env::args().collect();
+    let file_path = match args.get(1) {
         Some(path) => path,
         None => {
             eprintln!("Problem with parsing the file path");
             return;
         }
     };
+
+    println!("File path: {}", file_path);
 
     let mut file = match File::open(file_path.as_str()) {
         Ok(file) => file,
@@ -30,6 +33,6 @@ fn main() {
         hex_string.push_str(format!("{:02X}", byte).as_str());
     }
 
-    println!("Hex: {}", hex_string);
+    // println!("Hex: {}", hex_string);
     // Do something with the buffer
 }
