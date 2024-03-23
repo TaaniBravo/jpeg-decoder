@@ -1,5 +1,5 @@
 [package]
-name = "jpeg-decoder"
+name = "jpeg-codec"
 version = "0.1.0"
 edition = "2021"
 
